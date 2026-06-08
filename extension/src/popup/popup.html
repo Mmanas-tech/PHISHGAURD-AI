@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=400, initial-scale=1.0">
+  <title>PhishGuard AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <div class="logo">
+        <svg class="shield-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span class="brand">PhishGuard AI</span>
+      </div>
+      <div class="status-dot" id="statusDot"></div>
+    </div>
+
+    <div class="risk-gauge-container" id="gaugeContainer">
+      <svg class="risk-gauge" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="85" fill="none" stroke="#1a1a2e" stroke-width="12"/>
+        <circle cx="100" cy="100" r="85" fill="none" stroke-width="12"
+                stroke-linecap="round"
+                stroke-dasharray="534"
+                stroke-dashoffset="534"
+                id="gaugeArc"
+                transform="rotate(-90 100 100)"/>
+        <text x="100" y="90" text-anchor="middle" class="score-text" id="scoreText">--</text>
+        <text x="100" y="115" text-anchor="middle" class="score-label">RISK SCORE</text>
+      </svg>
+      <div class="threat-level" id="threatLevel">Analyzing...</div>
+    </div>
+
+    <div class="signals-section" id="signalsSection">
+      <h3 class="section-title">Threat Signals</h3>
+      <div class="signals-list" id="signalsList">
+        <div class="loading-skeleton">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="url-section" id="urlSection">
+      <h3 class="section-title">Current Site</h3>
+      <div class="url-info">
+        <div class="domain" id="currentDomain">--</div>
+        <div class="url-meta">
+          <span class="meta-item" id="sslStatus">
+            <span class="meta-dot"></span>
+            Checking SSL...
+          </span>
+          <span class="meta-item" id="domainAge">
+            <span class="meta-dot"></span>
+            Checking WHOIS...
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-secondary" id="proceedBtn" disabled>
+        Proceed Anyway
+      </button>
+      <button class="btn btn-danger" id="blockBtn">
+        Block Site
+      </button>
+      <button class="btn btn-outline" id="reportBtn">
+        Report
+      </button>
+    </div>
+
+    <div class="history-section">
+      <h3 class="section-title">Recent Scans</h3>
+      <div class="history-list" id="historyList">
+        <div class="loading-skeleton">
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line short"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="#" id="openDashboard" class="footer-link">Open Dashboard</a>
+      <a href="#" id="openSettings" class="footer-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
