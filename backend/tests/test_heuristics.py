@@ -1,8 +1,6 @@
-import pytest
 from app.services.heuristics import (
     calculate_entropy,
     check_homograph_attack,
-    check_typosquatting,
     check_suspicious_tld,
     check_redirect_chain,
     check_brand_impersonation,

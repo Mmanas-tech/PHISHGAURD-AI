@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import Any, Optional
 
 from app.services.heuristics import (
-    check_brand_impersonation,
     check_homograph_attack,
     extract_domain_features,
     score_url_heuristics,
