@@ -3,13 +3,13 @@ import uuid
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.core.config import get_settings
 from app.core.database import close_db, init_db
-from app.core.redis import cache_get, close_redis
+from app.core.redis import close_redis
 from app.routers import auth_router, dashboard_router, scan_router
 
 settings = get_settings()
