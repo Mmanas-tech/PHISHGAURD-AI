@@ -319,7 +319,7 @@ phishguard-ai/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-org/phishguard-ai.git
+git clone https://github.com/Mmanas-tech/phishguard-ai.git
 cd phishguard-ai
 ```
 
